@@ -6,6 +6,7 @@ int main()
     ssd1306_t ssd; // Inicializa a estrutura do display
     bool cor = true; //Estado LEDs display
     uint16_t valores_ref_joy[6] = {2047,4095,0,2047,4095,0}; //Valores de ref. Joystick
+    flag_botoes = 0;
 
     //Inicialização de hardware e software
     set_sys_clock_khz(1250000,false); //Cofigura o clock
@@ -66,6 +67,7 @@ int main()
             ssd1306_rect(&ssd, 3, 3, 122, 58, cor, !cor); // Desenha um retângulo
             ssd1306_draw_string(&ssd, " Modo Gravacao", 4, 30); // Desenha uma string
             som_buz(1*KHz, 1000);
+            sleep_ms(1000);
             modo_gravacao();
         }
             

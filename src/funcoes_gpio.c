@@ -15,7 +15,6 @@ volatile bool control = true;
  */
 void botoes_callback(uint gpio, uint32_t events)
 {
-    som_buz(1000,1000);
     printf("Interrupcao");
     // Obtém o tempo atual em microssegundos
     uint32_t agora = to_us_since_boot(get_absolute_time());
@@ -24,9 +23,7 @@ void botoes_callback(uint gpio, uint32_t events)
     {
         passado  = agora;
         if(gpio == bot_A)
-        {
             flag_botoes = !flag_botoes;
-        }
         else if(gpio == bot_B)
             modo_gravacao_flag = 1;
     }
